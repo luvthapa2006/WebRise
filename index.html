@@ -3,277 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebRise - Modern Web Solutions</title>
+    <title>WebRise - Web Design Agency Dehradun</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-gradient">
-        <div class="bg-blob blob-1"></div>
-        <div class="bg-blob blob-2"></div>
-        <div class="bg-blob blob-3"></div>
-    </div>
-
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav id="navbar">
         <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-rocket"></i>
-                    <span>WebRise</span>
+            <div class="nav-content">
+                <a href="#" class="logo" onclick="scrollToTop(event)">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L4 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-8-5z"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Web<span class="text-gradient">Rise</span></span>
+                </a>
+
+                <div class="nav-links desktop-nav">
+                    <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
+                    <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
+                    <a href="#why-us" onclick="smoothScroll(event, '#why-us')">Why Us</a>
+                    <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
+                    <button class="btn btn-white" onclick="smoothScroll(event, '#contact')">Get Started</button>
                 </div>
-                
-                <ul class="nav-links">
-                    <li><a href="#home" onclick="smoothScroll(event, '#home')">Home</a></li>
-                    <li><a href="#services" onclick="smoothScroll(event, '#services')">Services</a></li>
-                    <li><a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a></li>
-                    <li><a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a></li>
-                    <li><a href="#contact" onclick="smoothScroll(event, '#contact')">Contact</a></li>
-                </ul>
-                
+
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
+                    <span class="hamburger"></span>
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
+            <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
+            <a href="#why-us" onclick="smoothScroll(event, '#why-us')">Why Us</a>
+            <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
+            <button class="btn btn-gradient" onclick="smoothScroll(event, '#contact')">Get Started</button>
+        </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="#home" onclick="smoothScroll(event, '#home')">Home</a>
-        <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
-        <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
-        <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
-        <a href="#contact" onclick="smoothScroll(event, '#contact')">Contact</a>
-    </div>
-
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="bg-blob blob-1"></div>
+            <div class="bg-blob blob-2"></div>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-star"></i>
-                    <span>Premium Web Solutions</span>
+                <div class="badge">
+                    <span class="pulse-dot"></span>
+                    #1 Web Design Agency in Dehradun
                 </div>
+                
                 <h1 class="hero-title">
-                    Transform Your Business with 
-                    <span class="gradient-text">Modern Websites</span>
+                    Helping Businesses <br>
+                    <span class="text-gradient">Rise Online</span>
                 </h1>
+                
                 <p class="hero-subtitle">
-                    Professional, responsive, and SEO-optimized websites that help your business grow. 
-                    From concept to launch, we've got you covered.
+                    We build stunning, high-performance websites for local businesses in Dehradun. 
+                    Get online fast, affordable, and hassle-free.
                 </p>
+                
                 <div class="hero-buttons">
-                    <a href="#pricing" class="btn btn-primary" onclick="smoothScroll(event, '#pricing')">
-                        <i class="fas fa-rocket"></i>
-                        View Pricing
-                    </a>
-                    <a href="#portfolio" class="btn btn-secondary" onclick="smoothScroll(event, '#portfolio')">
-                        <i class="fas fa-eye"></i>
-                        Our Work
-                    </a>
+                    <button class="btn btn-gradient btn-lg" onclick="smoothScroll(event, '#contact')">
+                        Get Your Website
+                    </button>
+                    <button class="btn btn-outline btn-lg" onclick="smoothScroll(event, '#portfolio')">
+                        View Our Work
+                    </button>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">40+</div>
-                        <div class="stat-label">Happy Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Satisfaction Rate</div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <span>Fast Delivery</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📱</div>
+                    <span>Mobile Friendly</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">₹</div>
+                    <span>Affordable Pricing</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">👥</div>
+                    <span>Local Support</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">What We Do</span>
-                <h2>Our Services</h2>
-                <p>Comprehensive web solutions tailored to your business needs</p>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Everything you need to establish a powerful online presence for your business.</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites built with modern technologies, optimized for performance and user experience.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Responsive Design</li>
-                        <li><i class="fas fa-check"></i> Fast Loading Speed</li>
-                        <li><i class="fas fa-check"></i> Clean Code</li>
-                    </ul>
+                    <div class="service-icon">💻</div>
+                    <h3>Business Websites</h3>
+                    <p>Professional websites designed to showcase your brand and convert visitors into customers.</p>
                 </div>
-                
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                    <div class="service-icon">📱</div>
                     <h3>Mobile Responsive</h3>
-                    <p>Websites that look perfect on all devices - desktop, tablet, and mobile.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Mobile-First Approach</li>
-                        <li><i class="fas fa-check"></i> Touch Optimized</li>
-                        <li><i class="fas fa-check"></i> Cross-Browser Compatible</li>
+                    <p>Your site will look amazing on every device, from iPhones to large desktop monitors.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO Ready</h3>
+                    <p>Built with best practices to help you rank higher on Google search results.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Maintenance</h3>
+                    <p>We handle updates, security, and backups so you can focus on running your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us-section">
+        <div class="why-us-bg"></div>
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-content">
+                    <h2 class="section-title">
+                        Why Dehradun Businesses <br>
+                        <span class="text-gradient">Choose WebRise</span>
+                    </h2>
+                    <p class="why-us-description">
+                        We understand the local market. Unlike generic agencies, we focus specifically on businesses in Dehradun and Uttarakhand. We speak your language—no confusing tech jargon, just results.
+                    </p>
+                    
+                    <ul class="why-us-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            We meet deadlines, every time.
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Transparent pricing with no hidden costs.
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Direct WhatsApp support for quick queries.
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Very affordable pricing.
+                        </li>
                     </ul>
+                    
+                    <button class="btn btn-gradient" onclick="smoothScroll(event, '#contact')">
+                        Start Your Project
+                    </button>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
+                <div class="why-us-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Websites Delivered</div>
                     </div>
-                    <h3>SEO Optimization</h3>
-                    <p>Get found on Google with our proven SEO strategies and best practices.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Keyword Research</li>
-                        <li><i class="fas fa-check"></i> On-Page SEO</li>
-                        <li><i class="fas fa-check"></i> Performance Optimization</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-cart"></i>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
                     </div>
-                    <h3>E-Commerce</h3>
-                    <p>Complete online store solutions with secure payment integration.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Product Management</li>
-                        <li><i class="fas fa-check"></i> Payment Gateway</li>
-                        <li><i class="fas fa-check"></i> Order Tracking</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
                     </div>
-                    <h3>Security & Maintenance</h3>
-                    <p>Keep your website secure and up-to-date with regular maintenance.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> SSL Certificates</li>
-                        <li><i class="fas fa-check"></i> Regular Backups</li>
-                        <li><i class="fas fa-check"></i> Security Updates</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Support & Training</h3>
-                    <p>Ongoing support and training to help you manage your website.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 24/7 Support</li>
-                        <li><i class="fas fa-check"></i> Video Tutorials</li>
-                        <li><i class="fas fa-check"></i> Documentation</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Work</span>
-                <h2>Recent Projects</h2>
-                <p>Check out some of our latest web development projects</p>
+            <div class="section-header-flex">
+                <div>
+                    <h2 class="section-title">Recent Projects</h2>
+                    <p class="section-subtitle">Check out some of the websites we've built for local businesses.</p>
+                </div>
+                <a href="#" class="view-all-link">View All Projects →</a>
             </div>
             
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Business Dashboard">
-                        <div class="portfolio-overlay">
-                            <h3>Business Dashboard</h3>
-                            <p>Analytics & Reporting Platform</p>
-                            <div class="portfolio-tags">
-                                <span>React</span>
-                                <span>Dashboard</span>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Himalayan Cafe">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Restaurant</span>
+                        <h3>Himalayan Cafe</h3>
                     </div>
                 </div>
-                
                 <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop" alt="E-Commerce Store">
-                        <div class="portfolio-overlay">
-                            <h3>E-Commerce Store</h3>
-                            <p>Online Shopping Platform</p>
-                            <div class="portfolio-tags">
-                                <span>E-Commerce</span>
-                                <span>Payment</span>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80" alt="Doon Yoga Studio">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Fitness</span>
+                        <h3>Doon Yoga Studio</h3>
                     </div>
                 </div>
-                
                 <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" alt="Corporate Website">
-                        <div class="portfolio-overlay">
-                            <h3>Corporate Website</h3>
-                            <p>Professional Business Site</p>
-                            <div class="portfolio-tags">
-                                <span>Corporate</span>
-                                <span>SEO</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop" alt="Blog Platform">
-                        <div class="portfolio-overlay">
-                            <h3>Blog Platform</h3>
-                            <p>Content Management System</p>
-                            <div class="portfolio-tags">
-                                <span>Blog</span>
-                                <span>CMS</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" alt="Landing Page">
-                        <div class="portfolio-overlay">
-                            <h3>Product Landing</h3>
-                            <p>High-Converting Landing Page</p>
-                            <div class="portfolio-tags">
-                                <span>Landing</span>
-                                <span>Marketing</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Restaurant Website">
-                        <div class="portfolio-overlay">
-                            <h3>Restaurant Website</h3>
-                            <p>Menu & Online Ordering</p>
-                            <div class="portfolio-tags">
-                                <span>Restaurant</span>
-                                <span>Booking</span>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Uttarakhand Treks">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Hotel</span>
+                        <h3>Hotel Paradise</h3>
                     </div>
                 </div>
             </div>
@@ -281,218 +237,145 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="pricing-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Choose Your Plan</span>
-                <h2>Flexible Pricing Plans</h2>
-                <p>Affordable packages designed to fit your business needs and budget</p>
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-subtitle">No monthly fees. No hidden charges. Just a one-time payment for your professional website.</p>
             </div>
             
             <div class="pricing-grid">
-                <!-- Starter Plan -->
                 <div class="pricing-card">
-                    <div class="pricing-badge limited-offer">
+                    <div class="limited-offer-badge">
                         <i class="fas fa-bolt"></i> Limited Time Offer
                     </div>
-                    <div class="pricing-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Starter Plan</h3>
+                    <h3 class="pricing-title">Starter Plan</h3>
                     <p class="pricing-description">Best for small shops & local businesses</p>
-                    <div class="pricing-price">
+                    <div class="pricing-price-wrapper">
                         <div class="price-original">₹6,999</div>
-                        <div class="price-current">
-                            <span class="currency">₹</span>
-                            <span class="amount">3,999</span>
-                        </div>
+                        <div class="pricing-price">₹3,999</div>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 1 Page Website (Landing Style)</li>
-                        <li><i class="fas fa-check"></i> Mobile Responsive Design</li>
-                        <li><i class="fas fa-check"></i> Business Information Section</li>
-                        <li><i class="fas fa-check"></i> Contact Details Section</li>
-                        <li><i class="fas fa-check"></i> Social Media Links</li>
-                        <li><i class="fas fa-check"></i> Basic UI Design</li>
+                        <li>✓ 1 Page Website (Landing Style)</li>
+                        <li>✓ Mobile Responsive Design</li>
+                        <li>✓ Business Information Section</li>
+                        <li>✓ Contact Details Section</li>
+                        <li>✓ Social Media Links</li>
+                        <li>✓ Basic UI Design</li>
                     </ul>
                     <div class="pricing-notes">
                         <p><i class="fas fa-info-circle"></i> Domain + Hosting: Extra (up to ₹3,000)</p>
                         <p><i class="fas fa-clock"></i> Delivery: 2–3 days</p>
                     </div>
-                    <button class="btn btn-primary" onclick="selectPricing('Starter Plan')">
-                        Get Started
-                    </button>
+                    <button class="btn btn-outline-white" onclick="selectPricing('Starter Plan')">Select Plan</button>
                 </div>
-
-                <!-- Business Plan -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge limited-offer">
+                
+                <div class="pricing-card pricing-popular">
+                    <div class="limited-offer-badge">
                         <i class="fas fa-bolt"></i> Limited Time Offer
                     </div>
-                    <div class="popular-badge">
-                        <i class="fas fa-star"></i> Most Popular
-                    </div>
-                    <div class="pricing-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Business Plan</h3>
+                    <div class="popular-badge">⭐ Most Popular</div>
+                    <h3 class="pricing-title">Business Plan</h3>
                     <p class="pricing-description">Best for growing businesses</p>
-                    <div class="pricing-price">
+                    <div class="pricing-price-wrapper">
                         <div class="price-original">₹9,999</div>
-                        <div class="price-current">
-                            <span class="currency">₹</span>
-                            <span class="amount">6,999</span>
-                        </div>
+                        <div class="pricing-price">₹6,999</div>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Up to 3 Pages Website</li>
-                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
-                        <li><i class="fas fa-check"></i> Basic SEO Setup</li>
-                        <li><i class="fas fa-check"></i> Services Section</li>
-                        <li><i class="fas fa-check"></i> Image Gallery</li>
-                        <li><i class="fas fa-check"></i> Google Maps Integration</li>
-                        <li><i class="fas fa-check"></i> WhatsApp Chat Button</li>
-                        <li><i class="fas fa-check"></i> Contact Form</li>
-                        <li><i class="fas fa-check"></i> 1 Year Domain Included</li>
+                        <li>✓ Up to 3 Pages Website</li>
+                        <li>✓ Mobile Responsive</li>
+                        <li>✓ Basic SEO Setup</li>
+                        <li>✓ Services Section</li>
+                        <li>✓ Image Gallery</li>
+                        <li>✓ Google Maps Integration</li>
+                        <li>✓ WhatsApp Chat Button</li>
+                        <li>✓ Contact Form</li>
+                        <li>✓ 1 Year Domain Included</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="selectPricing('Business Plan')">
-                        Get Started
-                    </button>
+                    <button class="btn btn-gradient" onclick="selectPricing('Business Plan')">Select Plan</button>
                 </div>
-
-                <!-- Pro Plan -->
+                
                 <div class="pricing-card">
-                    <div class="pricing-badge limited-offer">
+                    <div class="limited-offer-badge">
                         <i class="fas fa-bolt"></i> Limited Time Offer
                     </div>
-                    <div class="pricing-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Pro Plan</h3>
+                    <h3 class="pricing-title">Pro Plan</h3>
                     <p class="pricing-description">Best for brands & startups</p>
-                    <div class="pricing-price">
+                    <div class="pricing-price-wrapper">
                         <div class="price-original">₹14,999</div>
-                        <div class="price-current">
-                            <span class="currency">₹</span>
-                            <span class="amount">11,999</span>
-                        </div>
+                        <div class="pricing-price">₹11,999</div>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Up to 5 Pages</li>
-                        <li><i class="fas fa-check"></i> Advanced SEO Setup</li>
-                        <li><i class="fas fa-check"></i> Blog Section</li>
-                        <li><i class="fas fa-check"></i> Product Showcase</li>
-                        <li><i class="fas fa-check"></i> Admin Panel (Basic CMS)</li>
-                        <li><i class="fas fa-check"></i> User Login System</li>
-                        <li><i class="fas fa-check"></i> Payment Gateway Integration</li>
-                        <li><i class="fas fa-check"></i> Speed Optimization</li>
-                        <li><i class="fas fa-check"></i> Security Setup</li>
+                        <li>✓ Up to 5 Pages</li>
+                        <li>✓ Advanced SEO Setup</li>
+                        <li>✓ Blog Section</li>
+                        <li>✓ Product Showcase</li>
+                        <li>✓ Admin Panel (Basic CMS)</li>
+                        <li>✓ User Login System</li>
+                        <li>✓ Payment Gateway Integration</li>
+                        <li>✓ Speed Optimization</li>
+                        <li>✓ Security Setup</li>
                     </ul>
                     <div class="pricing-bonus">
                         <i class="fas fa-gift"></i> Bonus: 1 Month Free Support
                     </div>
-                    <button class="btn btn-primary" onclick="selectPricing('Pro Plan')">
-                        Get Started
-                    </button>
+                    <button class="btn btn-outline-white" onclick="selectPricing('Pro Plan')">Select Plan</button>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Get In Touch</span>
-                <h2>Let's Build Something Great</h2>
-                <p>Ready to start your project? Fill out the form below and we'll get back to you within 24 hours</p>
-            </div>
-            
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="contact-features">
+                        <div class="contact-feature">
+                            <div class="feature-icon">💻</div>
+                            <div>
+                                <h4>Modern Design</h4>
+                                <p>We use the latest trends to ensure your site looks fresh.</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Email Us</h4>
-                            <p>info@webrise.com</p>
-                            <p>support@webrise.com</p>
+                        <div class="contact-feature">
+                            <div class="feature-icon">⚡</div>
+                            <div>
+                                <h4>Speed Optimized</h4>
+                                <p>Fast loading sites that Google and your customers love.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Call Us</h4>
-                            <p>+91 98765 43210</p>
-                            <p>Mon-Sat: 9AM - 6PM</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Visit Us</h4>
-                            <p>123 Tech Street</p>
-                            <p>Mumbai, India 400001</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
-                <form class="contact-form" onsubmit="handleSubmit(event)">
-                    <div class="form-row">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" onsubmit="handleSubmit(event)">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                    </div>
-                    
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="package">Select Package *</label>
-                            <select id="package" name="package" required>
-                                <option value="">Choose a plan</option>
+                            <label for="business">Business Name</label>
+                            <input type="text" id="business" name="business" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="package">Select Package</label>
+                            <select id="package" name="package">
+                                <option value="">Choose a package...</option>
                                 <option value="Starter Plan">Starter Plan - ₹3,999</option>
                                 <option value="Business Plan">Business Plan - ₹6,999</option>
                                 <option value="Pro Plan">Pro Plan - ₹11,999</option>
-                                <option value="Custom">Custom Solution</option>
                             </select>
                         </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Project Details *</label>
-                        <textarea id="message" name="message" required rows="5" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Message
-                    </button>
-                </form>
+                        <div class="form-group">
+                            <label for="message">Tell us about your project</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient btn-full">Send Inquiry</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -501,65 +384,45 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-rocket"></i>
-                        <span>WebRise</span>
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L4 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-8-5z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Web<span class="text-gradient">Rise</span></span>
                     </div>
-                    <p>Building modern, responsive websites that help businesses grow and succeed online.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
+                    <p class="footer-description">Building digital success for Dehradun businesses since 2020.</p>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home" onclick="smoothScroll(event, '#home')">Home</a></li>
-                        <li><a href="#services" onclick="smoothScroll(event, '#services')">Services</a></li>
-                        <li><a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a></li>
-                        <li><a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a></li>
-                    </ul>
+                    <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
+                    <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
+                    <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
+                    <a href="#contact" onclick="smoothScroll(event, '#contact')">Contact</a>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">Mobile Responsive</a></li>
-                        <li><a href="#services">SEO Optimization</a></li>
-                        <li><a href="#services">E-Commerce</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@webrise.com</li>
-                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
-                    </ul>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>Dehradun, Uttarakhand</p>
+                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="264549485247455266514344544f5543084f48">[email&#160;protected]</a></p>
+                    <p>+91 98765 43210</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2024 WebRise. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="LinkedIn">IN</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" onclick="scrollToTop(event)" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919876543210" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
