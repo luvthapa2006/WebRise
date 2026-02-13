@@ -3,233 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebRise - Web Design Agency Dehradun</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>WebRise - Modern Web Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316',
+                        secondary: '#fb923c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.6); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-scrolled {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+        nav {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(8px);
+        }
+        /* Mobile Menu Fix */
+        #mobile-menu.active {
+            transform: translateX(0) !important;
+        }
+    </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav id="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo" onclick="scrollToTop(event)">
-                    <div class="logo-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L4 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-8-5z"/>
-                        </svg>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-0 -left-4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+        <div class="absolute top-0 -right-4 w-96 h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-8 left-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="https://i.ibb.co/d4wVk5Y3/Gemini-Generated-Image-5jh4u75jh4u75jh4.png" alt="WebRise Logo" class="w-full h-full object-cover">
                     </div>
-                    <span class="logo-text">Web<span class="text-gradient">Rise</span></span>
-                </a>
-
-                <div class="nav-links desktop-nav">
-                    <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
-                    <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
-                    <a href="#why-us" onclick="smoothScroll(event, '#why-us')">Why Us</a>
-                    <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
-                    <button class="btn btn-white" onclick="smoothScroll(event, '#contact')">Get Started</button>
+                    <span class="text-2xl font-bold">Web<span class="gradient-text">Rise</span></span>
                 </div>
-
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <span class="hamburger"></span>
+                
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-orange-500 transition-colors duration-300">Home</a></li>
+                    <li><a href="#vision" class="hover:text-orange-500 transition-colors duration-300">Vision</a></li>
+                    <li><a href="#services" class="hover:text-orange-500 transition-colors duration-300">Services</a></li>
+                    <li><a href="#portfolio" class="hover:text-orange-500 transition-colors duration-300">Portfolio</a></li>
+                    <li><a href="#pricing" class="hover:text-orange-500 transition-colors duration-300">Pricing</a></li>
+                    <li><a href="#contact" class="hover:text-orange-500 transition-colors duration-300">Contact</a></li>
+                </ul>
+                
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
-            <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
-            <a href="#why-us" onclick="smoothScroll(event, '#why-us')">Why Us</a>
-            <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
-            <button class="btn btn-gradient" onclick="smoothScroll(event, '#contact')">Get Started</button>
-        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg">
-            <div class="bg-blob blob-1"></div>
-            <div class="bg-blob blob-2"></div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white hover:text-orange-500 transition-colors">
+            <i class="fas fa-times text-3xl"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="#home" onclick="toggleMobileMenu()" class="hover:text-orange-500 transition-colors">Home</a>
+            <a href="#vision" onclick="toggleMobileMenu()" class="hover:text-orange-500 transition-colors">Vision</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="hover:text-orange-500 transition-colors">Services</a>
+            <a href="#portfolio" onclick="toggleMobileMenu()" class="hover:text-orange-500 transition-colors">Portfolio</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="hover:text-orange-500 transition-colors">Pricing</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-orange-500 transition-colors">Contact</a>
         </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <div class="badge">
-                    <span class="pulse-dot"></span>
-                    #1 Web Design Agency in Dehradun
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 mb-8 animate-pulse-glow">
+                <i class="fas fa-star text-orange-500"></i>
+                <span class="text-sm font-semibold">Premium Web Solutions</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Grow Your Business with <br>
+                <span class="gradient-text">Modern Websites</span>
+            </h1>
+            
+            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                Professional, responsive, and SEO-optimized websites that help your business grow. 
+                From concept to launch, we've got you covered.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <a href="#pricing" class="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/50">
+                    <i class="fas fa-rocket mr-2"></i> View Pricing
+                </a>
+                <a href="#portfolio" class="glass-effect hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-eye mr-2"></i> Our Work
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass-effect rounded-2xl p-6 transform hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                    <div class="text-gray-400">Satisfaction Rate</div>
                 </div>
-                
-                <h1 class="hero-title">
-                    Helping Businesses <br>
-                    <span class="text-gradient">Rise Online</span>
-                </h1>
-                
-                <p class="hero-subtitle">
-                    We build stunning, high-performance websites for local businesses in Dehradun. 
-                    Get online fast, affordable, and hassle-free.
-                </p>
-                
-                <div class="hero-buttons">
-                    <button class="btn btn-gradient btn-lg" onclick="smoothScroll(event, '#contact')">
-                        Get Your Website
-                    </button>
-                    <button class="btn btn-outline btn-lg" onclick="smoothScroll(event, '#portfolio')">
-                        View Our Work
-                    </button>
+                <div class="glass-effect rounded-2xl p-6 transform hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl font-bold gradient-text mb-2">24/7</div>
+                    <div class="text-gray-400">Support Available</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Indicators -->
-    <section class="trust-section">
-        <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon">⚡</div>
-                    <span>Fast Delivery</span>
+    <!-- Vision Section -->
+    <section id="vision" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-sm font-semibold mb-4">Our Vision</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Bringing Hidden <span class="gradient-text">Gems to Light</span>
+                </h2>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        <i class="fas fa-quote-left text-orange-500 mr-2"></i>
+                        <span class="font-semibold text-white">We believe every business has a story worth telling.</span>
+                        Our mission is to bring the missing gems back to visibility—those special restaurants, exceptional services, and quality businesses that deserve to be discovered.
+                        <i class="fas fa-quote-right text-orange-500 ml-2"></i>
+                    </p>
+                    <p class="text-lg text-gray-400 leading-relaxed">
+                        In a digital world where visibility equals opportunity, we help businesses shine online. Through stunning websites and strategic digital presence, we transform hidden treasures into must-visit destinations. Your excellence deserves an audience—let's make sure the world finds you.
+                    </p>
                 </div>
-                <div class="trust-item">
-                    <div class="trust-icon">📱</div>
-                    <span>Mobile Friendly</span>
+            </div>
+            
+            <!-- Vision Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Discover Excellence</h3>
+                    <p class="text-gray-400">We identify businesses with exceptional quality and untapped potential, ready to make their mark online.</p>
                 </div>
-                <div class="trust-item">
-                    <div class="trust-icon">₹</div>
-                    <span>Affordable Pricing</span>
+                
+                <div class="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Amplify Presence</h3>
+                    <p class="text-gray-400">We create powerful digital experiences that showcase your uniqueness and attract your ideal customers.</p>
                 </div>
-                <div class="trust-item">
-                    <div class="trust-icon">👥</div>
-                    <span>Local Support</span>
+                
+                <div class="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-star text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Achieve Success</h3>
+                    <p class="text-gray-400">We turn hidden gems into thriving success stories through strategic visibility and engaging online presence.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Everything you need to establish a powerful online presence for your business.</p>
+    <section id="services" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-sm font-semibold mb-4">What We Do</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+                <p class="text-gray-400 text-lg">Comprehensive web solutions tailored to your business needs</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Business Websites</h3>
-                    <p>Professional websites designed to showcase your brand and convert visitors into customers.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Mobile Responsive</h3>
-                    <p>Your site will look amazing on every device, from iPhones to large desktop monitors.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>SEO Ready</h3>
-                    <p>Built with best practices to help you rank higher on Google search results.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Maintenance</h3>
-                    <p>We handle updates, security, and backups so you can focus on running your business.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us-section">
-        <div class="why-us-bg"></div>
-        <div class="container">
-            <div class="why-us-grid">
-                <div class="why-us-content">
-                    <h2 class="section-title">
-                        Why Dehradun Businesses <br>
-                        <span class="text-gradient">Choose WebRise</span>
-                    </h2>
-                    <p class="why-us-description">
-                        We understand the local market. Unlike generic agencies, we focus specifically on businesses in Dehradun and Uttarakhand. We speak your language—no confusing tech jargon, just results.
-                    </p>
-                    
-                    <ul class="why-us-list">
-                        <li>
-                            <span class="check-icon">✓</span>
-                            We meet deadlines, every time.
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            Transparent pricing with no hidden costs.
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            Direct WhatsApp support for quick queries.
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            Very affordable pricing.
-                        </li>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-laptop-code text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                    <p class="text-gray-400 mb-6">Custom websites built with modern technologies, optimized for performance and user experience.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Responsive Design</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Fast Loading Speed</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Clean Code</li>
                     </ul>
-                    
-                    <button class="btn btn-gradient" onclick="smoothScroll(event, '#contact')">
-                        Start Your Project
-                    </button>
                 </div>
-                
-                <div class="why-us-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Websites Delivered</div>
+
+                <!-- Service Card 2 -->
+                <div class="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-mobile-alt text-2xl text-white"></i>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Satisfaction</div>
+                    <h3 class="text-2xl font-bold mb-4">Mobile Responsive</h3>
+                    <p class="text-gray-400 mb-6">Websites that look perfect on all devices - desktop, tablet, and mobile.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Mobile-First Approach</li>
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Touch Optimized</li>
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Cross-Browser Compatible</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-search text-2xl text-white"></i>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support Available</div>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4">SEO Optimization</h3>
+                    <p class="text-gray-400 mb-6">Get found on Google with our proven SEO strategies and best practices.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Keyword Research</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> On-Page SEO</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Performance Optimization</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <div class="section-header-flex">
-                <div>
-                    <h2 class="section-title">Recent Projects</h2>
-                    <p class="section-subtitle">Check out some of the websites we've built for local businesses.</p>
-                </div>
-                <a href="#" class="view-all-link">View All Projects →</a>
+    <section id="portfolio" class="py-20 px-4 bg-gray-800/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-sm font-semibold mb-4">Our Work</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Recent Projects</h2>
+                <p class="text-gray-400 text-lg">Check out some of our latest web development projects</p>
             </div>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Himalayan Cafe">
-                    <div class="portfolio-overlay"></div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Restaurant</span>
-                        <h3>Himalayan Cafe</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Business Dashboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Business Dashboard</h3>
+                            <p class="text-gray-300 mb-4">Analytics & Reporting Platform</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-orange-500/20 border border-orange-500/30 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-orange-500/20 border border-orange-500/30 rounded-full text-sm">Dashboard</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80" alt="Doon Yoga Studio">
-                    <div class="portfolio-overlay"></div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Fitness</span>
-                        <h3>Doon Yoga Studio</h3>
+
+                <!-- Portfolio Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop" alt="E-Commerce Store" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">E-Commerce Store</h3>
+                            <p class="text-gray-300 mb-4">Online Shopping Platform</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm">E-Commerce</span>
+                                <span class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm">Payment</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Uttarakhand Treks">
-                    <div class="portfolio-overlay"></div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Hotel</span>
-                        <h3>Hotel Paradise</h3>
+
+                <!-- Portfolio Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" alt="Corporate Website" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Corporate Website</h3>
+                            <p class="text-gray-300 mb-4">Professional Business Site</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm">Corporate</span>
+                                <span class="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm">SEO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop" alt="Blog Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Blog Platform</h3>
+                            <p class="text-gray-300 mb-4">Content Management System</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-sm">Blog</span>
+                                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-sm">CMS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" alt="Landing Page" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Product Landing</h3>
+                            <p class="text-gray-300 mb-4">High-Converting Landing Page</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-sm">Landing</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-sm">Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Restaurant Website" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Restaurant Website</h3>
+                            <p class="text-gray-300 mb-4">Menu & Online Ordering</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-red-500/20 border border-red-500/30 rounded-full text-sm">Restaurant</span>
+                                <span class="px-3 py-1 bg-red-500/20 border border-red-500/30 rounded-full text-sm">Booking</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,192 +368,358 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Simple, Transparent Pricing</h2>
-                <p class="section-subtitle">No monthly fees. No hidden charges. Just a one-time payment for your professional website.</p>
+    <section id="pricing" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-sm font-semibold mb-4">Choose Your Plan</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Flexible Pricing Plans</h2>
+                <p class="text-gray-400 text-lg">Affordable packages designed to fit your business needs and budget</p>
             </div>
             
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="limited-offer-badge">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="glass-effect rounded-3xl p-8 relative hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
                         <i class="fas fa-bolt"></i> Limited Time Offer
                     </div>
-                    <h3 class="pricing-title">Starter Plan</h3>
-                    <p class="pricing-description">Best for small shops & local businesses</p>
-                    <div class="pricing-price-wrapper">
-                        <div class="price-original">₹6,999</div>
-                        <div class="pricing-price">₹3,999</div>
+                    
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 mt-8">
+                        <i class="fas fa-rocket text-2xl text-white"></i>
                     </div>
-                    <ul class="pricing-features">
-                        <li>✓ 1 Page Website (Landing Style)</li>
-                        <li>✓ Mobile Responsive Design</li>
-                        <li>✓ Business Information Section</li>
-                        <li>✓ Contact Details Section</li>
-                        <li>✓ Social Media Links</li>
-                        <li>✓ Basic UI Design</li>
+                    
+                    <h3 class="text-2xl font-bold mb-2">Starter Plan</h3>
+                    <p class="text-gray-400 mb-6">Best for small shops & local businesses</p>
+                    
+                    <div class="mb-6">
+                        <div class="text-gray-500 line-through text-lg mb-2">₹6,999</div>
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold gradient-text">₹3,999</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>1 Page Website (Landing Style)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Mobile Responsive Design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Business Information Section</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Contact Details Section</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Social Media Links</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Basic UI Design</span>
+                        </li>
                     </ul>
-                    <div class="pricing-notes">
-                        <p><i class="fas fa-info-circle"></i> Domain + Hosting: Extra (up to ₹3,000)</p>
-                        <p><i class="fas fa-clock"></i> Delivery: 2–3 days</p>
-                    </div>
-                    <button class="btn btn-outline-white" onclick="selectPricing('Starter Plan')">Select Plan</button>
+                    
+                    <button onclick="selectPricing('Starter Plan')" class="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+                        Get Started
+                    </button>
                 </div>
-                
-                <div class="pricing-card pricing-popular">
-                    <div class="limited-offer-badge">
+
+                <!-- Business Plan (Most Popular) -->
+                <div class="glass-effect rounded-3xl p-8 relative border-2 border-orange-500 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 md:scale-105">
+                    <div class="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
                         <i class="fas fa-bolt"></i> Limited Time Offer
                     </div>
-                    <div class="popular-badge">⭐ Most Popular</div>
-                    <h3 class="pricing-title">Business Plan</h3>
-                    <p class="pricing-description">Best for growing businesses</p>
-                    <div class="pricing-price-wrapper">
-                        <div class="price-original">₹9,999</div>
-                        <div class="pricing-price">₹6,999</div>
+                    
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-star"></i> Most Popular
                     </div>
-                    <ul class="pricing-features">
-                        <li>✓ Up to 3 Pages Website</li>
-                        <li>✓ Mobile Responsive</li>
-                        <li>✓ Basic SEO Setup</li>
-                        <li>✓ Services Section</li>
-                        <li>✓ Image Gallery</li>
-                        <li>✓ Google Maps Integration</li>
-                        <li>✓ WhatsApp Chat Button</li>
-                        <li>✓ Contact Form</li>
-                        <li>✓ 1 Year Domain Included</li>
+                    
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mt-8">
+                        <i class="fas fa-briefcase text-2xl text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-2">Business Plan</h3>
+                    <p class="text-gray-400 mb-6">Best for growing businesses</p>
+                    
+                    <div class="mb-6">
+                        <div class="text-gray-500 line-through text-lg mb-2">₹9,999</div>
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold gradient-text">₹6,999</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Up to 3 Pages Website</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Mobile Responsive</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Basic SEO Setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Services Section</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Image Gallery</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Google Maps Integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>WhatsApp Chat Button</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>Contact Form</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <span>1 Year Domain Included</span>
+                        </li>
                     </ul>
-                    <button class="btn btn-gradient" onclick="selectPricing('Business Plan')">Select Plan</button>
+                    
+                    <button onclick="selectPricing('Business Plan')" class="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/50">
+                        Get Started
+                    </button>
                 </div>
-                
-                <div class="pricing-card">
-                    <div class="limited-offer-badge">
+
+                <!-- Pro Plan -->
+                <div class="glass-effect rounded-3xl p-8 relative hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
                         <i class="fas fa-bolt"></i> Limited Time Offer
                     </div>
-                    <h3 class="pricing-title">Pro Plan</h3>
-                    <p class="pricing-description">Best for brands & startups</p>
-                    <div class="pricing-price-wrapper">
-                        <div class="price-original">₹14,999</div>
-                        <div class="pricing-price">₹11,999</div>
+                    
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 mt-8">
+                        <i class="fas fa-crown text-2xl text-white"></i>
                     </div>
-                    <ul class="pricing-features">
-                        <li>✓ Up to 5 Pages</li>
-                        <li>✓ Advanced SEO Setup</li>
-                        <li>✓ Blog Section</li>
-                        <li>✓ Product Showcase</li>
-                        <li>✓ Admin Panel (Basic CMS)</li>
-                        <li>✓ User Login System</li>
-                        <li>✓ Payment Gateway Integration</li>
-                        <li>✓ Speed Optimization</li>
-                        <li>✓ Security Setup</li>
+                    
+                    <h3 class="text-2xl font-bold mb-2">Pro Plan</h3>
+                    <p class="text-gray-400 mb-6">Best for brands & startups</p>
+                    
+                    <div class="mb-6">
+                        <div class="text-gray-500 line-through text-lg mb-2">₹14,999</div>
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold gradient-text">₹11,999</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Up to 5 Pages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Advanced SEO Setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Blog Section</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Product Showcase</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Admin Panel (Basic CMS)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>User Login System</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Payment Gateway Integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Speed Optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
+                            <span>Security Setup</span>
+                        </li>
                     </ul>
-                    <div class="pricing-bonus">
-                        <i class="fas fa-gift"></i> Bonus: 1 Month Free Support
-                    </div>
-                    <button class="btn btn-outline-white" onclick="selectPricing('Pro Plan')">Select Plan</button>
+                    
+                    <button onclick="selectPricing('Pro Plan')" class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+                        Get Started
+                    </button>
                 </div>
             </div>
         </div>
     </section>
-                    <div class="contact-features">
-                        <div class="contact-feature">
-                            <div class="feature-icon">💻</div>
-                            <div>
-                                <h4>Modern Design</h4>
-                                <p>We use the latest trends to ensure your site looks fresh.</p>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gray-800/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-sm font-semibold mb-4">Get In Touch</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Build Something Great</h2>
+                <p class="text-gray-400 text-lg">Ready to start your project? Fill out the form below and we'll get back to you within 24 hours</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="glass-effect rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-xl text-white"></i>
                             </div>
-                        </div>
-                        <div class="contact-feature">
-                            <div class="feature-icon">⚡</div>
                             <div>
-                                <h4>Speed Optimized</h4>
-                                <p>Fast loading sites that Google and your customers love.</p>
+                                <h4 class="text-xl font-bold mb-2">Email Us</h4>
+                                <p class="text-gray-400">thapaluv1029@gmail.com</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Call Us</h4>
+                                <p class="text-gray-400">+91 9760689170</p>
+                                <p class="text-gray-400">+91 9412055898</p>
+                                <p class="text-gray-400">Mon-Sat: 9AM - 6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 glass-effect hover:bg-orange-500 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
+                <!-- Contact Form -->
+                <form id="contactForm" class="glass-effect rounded-2xl p-8 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Full Name *</label>
+                            <input type="text" name="name" id="name" required class="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus:border-orange-500 focus:outline-none transition-colors">
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email Address *</label>
+                            <input type="email" name="email" id="email" required class="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus:border-orange-500 focus:outline-none transition-colors">
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" class="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus:border-orange-500 focus:outline-none transition-colors">
                         </div>
-                        <div class="form-group">
-                            <label for="business">Business Name</label>
-                            <input type="text" id="business" name="business" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="package">Select Package</label>
-                            <select id="package" name="package">
-                                <option value="">Choose a package...</option>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Select Package *</label>
+                            <select id="package" name="package" required class="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus:border-orange-500 focus:outline-none transition-colors">
+                                <option value="">Choose a plan</option>
                                 <option value="Starter Plan">Starter Plan - ₹3,999</option>
                                 <option value="Business Plan">Business Plan - ₹6,999</option>
                                 <option value="Pro Plan">Pro Plan - ₹11,999</option>
+                                <option value="Custom">Custom Solution</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Tell us about your project</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-gradient btn-full">Send Inquiry</button>
-                    </form>
-                </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Project Details *</label>
+                        <textarea name="message" id="message" required rows="5" class="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus:border-orange-500 focus:outline-none transition-colors"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/50">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L4 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-8-5z"/>
-                            </svg>
+    <footer class="py-12 px-4 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                            <img src="https://i.ibb.co/d4wVk5Y3/Gemini-Generated-Image-5jh4u75jh4u75jh4.png" alt="WebRise Logo" class="w-full h-full object-cover">
                         </div>
-                        <span class="logo-text">Web<span class="text-gradient">Rise</span></span>
+                        <span class="text-2xl font-bold">Web<span class="gradient-text">Rise</span></span>
                     </div>
-                    <p class="footer-description">Building digital success for Dehradun businesses since 2020.</p>
+                    <p class="text-gray-400 mb-4">Building modern, responsive websites that help businesses grow and succeed online.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 glass-effect hover:bg-orange-500 rounded-lg flex items-center justify-center transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="#services" onclick="smoothScroll(event, '#services')">Services</a>
-                    <a href="#portfolio" onclick="smoothScroll(event, '#portfolio')">Portfolio</a>
-                    <a href="#pricing" onclick="smoothScroll(event, '#pricing')">Pricing</a>
-                    <a href="#contact" onclick="smoothScroll(event, '#contact')">Contact</a>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="#vision" class="hover:text-orange-500 transition-colors">Vision</a></li>
+                        <li><a href="#services" class="hover:text-orange-500 transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-orange-500 transition-colors">Portfolio</a></li>
+                        <li><a href="#pricing" class="hover:text-orange-500 transition-colors">Pricing</a></li>
+                    </ul>
                 </div>
                 
-                <div class="footer-contact">
-                    <h4>Get in Touch</h4>
-                    <p>Dehradun, Uttarakhand</p>
-                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="264549485247455266514344544f5543084f48">[email&#160;protected]</a></p>
-                    <p>+91 98765 43210</p>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-orange-500"></i>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfbba7aebfaea3bab9fefffdf68fa8a2aea6a3e1aca0a2">[email&#160;protected]</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-orange-500"></i>
+                            +91 9760689170
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-orange-500"></i>
+                            +91 9412055898
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-orange-500"></i>
+                            Dehradun, India
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebRise. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="LinkedIn">IN</a>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400">&copy; 2024 WebRise. All rights reserved.</p>
+                <div class="flex gap-6 text-gray-400">
+                    <a href="#" class="hover:text-orange-500 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-500 transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/919876543210" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop(event)" id="scrollTop" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-orange-500/50 transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none">
+        <i class="fas fa-arrow-up text-white"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

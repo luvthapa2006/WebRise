@@ -12,6 +12,13 @@ window.addEventListener('scroll', function() {
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenu.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (mobileMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 }
 
 // Smooth scroll function
@@ -20,7 +27,10 @@ function smoothScroll(event, target) {
     
     // Close mobile menu if open
     const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.remove('active');
+    if (mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
     
     const element = document.querySelector(target);
     if (element) {
@@ -58,23 +68,44 @@ function selectPricing(plan) {
     }
 }
 
-// Form submission handler
+// Form submission handler - Send to WhatsApp
 function handleSubmit(event) {
     event.preventDefault();
     
     // Get form data
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const packageSelected = document.getElementById('package').value;
+    const message = document.getElementById('message').value;
     
-    // Log form data (in production, this would send to a server)
-    console.log('Form submitted:', data);
+    // Create WhatsApp message
+    let whatsappMessage = `*New Website Inquiry*%0A%0A`;
+    whatsappMessage += `*Name:* ${encodeURIComponent(name)}%0A`;
+    whatsappMessage += `*Email:* ${encodeURIComponent(email)}%0A`;
+    if (phone) {
+        whatsappMessage += `*Phone:* ${encodeURIComponent(phone)}%0A`;
+    }
+    whatsappMessage += `*Package:* ${encodeURIComponent(packageSelected)}%0A`;
+    whatsappMessage += `*Message:* ${encodeURIComponent(message)}`;
     
-    // Show success message
-    alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+    // WhatsApp number
+    const whatsappNumber = '919760689170';
+    
+    // Open WhatsApp
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
     
     // Reset form
     event.target.reset();
 }
+
+// Add form submit event listener
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleSubmit);
+    }
+});
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -120,6 +151,7 @@ document.addEventListener('click', function(event) {
         !mobileMenu.contains(event.target) && 
         !mobileMenuBtn.contains(event.target)) {
         mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
     }
 });
 
@@ -196,10 +228,10 @@ if (form) {
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         
-        submitBtn.textContent = 'Sending...';
+        submitBtn.textContent = 'Opening WhatsApp...';
         submitBtn.disabled = true;
         
-        // Simulate async operation
+        // Re-enable button after a short delay
         setTimeout(() => {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -324,6 +356,7 @@ document.addEventListener('keydown', function(e) {
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu.classList.contains('active')) {
             mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
         }
     }
 });
